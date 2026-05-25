@@ -926,6 +926,342 @@ footer{background:var(--esp);border-top:1px solid rgba(255,255,255,.07);padding:
   margin: 4px 0;
 }
 
+
+/* Demo section — no scroll needed */
+#demo {
+  scroll-margin-top: 0;
+}
+.demo-section {
+  background: #f8faf9 !important;
+  padding: 5rem 0 4rem !important;
+}
+.demo-wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.demo-header {
+  max-width: 580px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+/* Make demo window visible without scrolling */
+.demo-window {
+  max-height: none !important;
+}
+.dw-body {
+  height: 440px !important;
+  min-height: 440px !important;
+  max-height: 440px !important;
+}
+
+
+/* ══ COFFEE CUP LOADING STATE ══ */
+@keyframes steamRise {
+  0%   { opacity:0; transform:translateY(0) scaleX(1); }
+  40%  { opacity:0.7; }
+  100% { opacity:0; transform:translateY(-14px) scaleX(0.6); }
+}
+.dw-loading {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity .4s ease;
+}
+.dw-loading.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.dw-coffee-wrap {
+  position: relative;
+  width: 72px;
+  height: 80px;
+  margin: 0 auto 1.25rem;
+}
+.dw-steam {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+.dw-steam-line {
+  width: 2px;
+  border-radius: 1px;
+  background: rgba(15,26,20,.20);
+  transform-origin: bottom center;
+}
+.dw-loading-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(15,26,20,.55);
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: -.01em;
+  margin-bottom: 4px;
+}
+.dw-loading-sub {
+  font-size: 11px;
+  color: rgba(15,26,20,.32);
+  font-family: 'DM Sans', sans-serif;
+}
+.dw-bean-coffee {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1.25rem;
+}
+
+
+/* ══ SHARE CARD PREVIEW ══ */
+.share-preview-wrap {
+  max-width: 980px;
+  margin: 3rem auto 0;
+  padding: 0 2rem;
+}
+.share-preview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+@media(max-width:640px) {
+  .share-preview-grid { grid-template-columns: 1fr; }
+}
+.share-preview-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(15,26,20,.32);
+  margin-bottom: .75rem;
+  font-family: 'DM Sans', sans-serif;
+}
+/* Share card — Mocha brand colours */
+.lp-share-card {
+  background: linear-gradient(160deg, #fff 0%, #fffcf9 40%, #fef7f0 100%);
+  border: 1.5px solid rgba(15,26,20,.09);
+  border-radius: 20px;
+  padding: 1.4rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 0 rgba(15,26,20,.05), 0 12px 40px rgba(15,26,20,.09);
+}
+.lp-share-card::before {
+  content: '';
+  position: absolute; top: 0; right: 0;
+  width: 160px; height: 160px;
+  background: radial-gradient(ellipse at 100% 0%, rgba(245,158,11,.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+.lp-share-card::after {
+  content: 'm';
+  position: absolute; right: 1rem; bottom: .8rem;
+  font-family: 'DM Serif Display', serif;
+  font-style: italic; font-size: 4.5rem;
+  color: rgba(15,26,20,.035);
+  pointer-events: none; line-height: 1;
+}
+/* University ranking card */
+.lp-uni-card {
+  background: linear-gradient(135deg, #fef7f0 0%, #fde8cc 100%);
+  border: 1.5px solid rgba(15,26,20,.09);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 0 rgba(15,26,20,.05), 0 4px 20px rgba(15,26,20,.06);
+}
+
+
+/* ══ TESTIMONIALS — APPLE LEVEL ══ */
+.testi-section-new {
+  background: #fff;
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.testi-section-new::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(15,26,20,.07) 30%, rgba(15,26,20,.07) 70%, transparent);
+}
+.testi-eyebrow {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #0a5c44;
+  margin-bottom: .8rem;
+  font-family: 'DM Sans', sans-serif;
+  text-align: center;
+}
+.testi-headline {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  color: #0f1a14;
+  letter-spacing: -.045em;
+  line-height: 1.08;
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.testi-headline em { font-style: italic; color: #0a5c44; }
+
+/* Scroll track */
+.testi-scroll-outer {
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 8px 40px 24px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+}
+.testi-scroll-outer:active { cursor: grabbing; }
+.testi-scroll-outer::-webkit-scrollbar { display: none; }
+.testi-scroll-track {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+}
+
+/* Individual card */
+.testi-card-new {
+  width: 380px;
+  flex-shrink: 0;
+  border-radius: 22px;
+  padding: 2.25rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform .22s cubic-bezier(.16,1,.3,1), box-shadow .22s;
+  cursor: default;
+}
+.testi-card-new:hover {
+  transform: translateY(-4px);
+}
+.testi-card-light {
+  background: #fafcfb;
+  border: 1.5px solid rgba(15,26,20,.08);
+  box-shadow: 0 2px 0 rgba(15,26,20,.04), 0 8px 32px rgba(15,26,20,.06);
+}
+.testi-card-light:hover {
+  box-shadow: 0 2px 0 rgba(15,26,20,.04), 0 16px 48px rgba(15,26,20,.12);
+}
+.testi-card-dark {
+  background: #0f1a14;
+  border: 1.5px solid #0f1a14;
+  box-shadow: 0 2px 0 rgba(15,26,20,.12), 0 8px 32px rgba(15,26,20,.16);
+}
+.testi-card-dark:hover {
+  box-shadow: 0 2px 0 rgba(15,26,20,.12), 0 20px 56px rgba(15,26,20,.22);
+}
+.testi-card-forest {
+  background: #0a1f16;
+  border: 1.5px solid rgba(10,92,68,.20);
+  box-shadow: 0 2px 0 rgba(10,92,68,.08), 0 8px 32px rgba(10,92,68,.12);
+}
+
+/* Badge */
+.testi-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 99px;
+  padding: 4px 11px;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+  margin-bottom: 1.4rem;
+}
+.testi-badge-light {
+  background: #eef7f1;
+  border: 1px solid rgba(10,92,68,.14);
+  color: #0a5c44;
+}
+.testi-badge-dark {
+  background: rgba(77,201,148,.12);
+  border: 1px solid rgba(77,201,148,.20);
+  color: #4dc994;
+}
+.testi-badge-dot { width: 5px; height: 5px; border-radius: 50%; background: #4dc994; }
+
+/* Quote */
+.testi-quote-new {
+  font-family: 'DM Serif Display', serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.65;
+  margin-bottom: 1.75rem;
+}
+.testi-card-light .testi-quote-new { color: #0f1a14; }
+.testi-card-dark .testi-quote-new, .testi-card-forest .testi-quote-new { color: rgba(245,237,224,.88); }
+
+/* Author */
+.testi-author-new {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.testi-avatar-new {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+  flex-shrink: 0;
+}
+.testi-name-new {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: -.01em;
+}
+.testi-card-light .testi-name-new { color: #0f1a14; }
+.testi-card-dark .testi-name-new, .testi-card-forest .testi-name-new { color: rgba(245,237,224,.90); }
+.testi-role-new {
+  font-size: 12px;
+  font-family: 'DM Sans', sans-serif;
+  margin-top: 2px;
+}
+.testi-card-light .testi-role-new { color: rgba(15,26,20,.42); }
+.testi-card-dark .testi-role-new, .testi-card-forest .testi-role-new { color: rgba(245,237,224,.38); }
+
+/* Fade edges */
+.testi-fade-l, .testi-fade-r {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  pointer-events: none;
+  z-index: 2;
+}
+.testi-fade-l { left: 0; background: linear-gradient(to right, #fff, transparent); }
+.testi-fade-r { right: 0; background: linear-gradient(to left, #fff, transparent); }
+
+/* Drag-to-scroll */
+.testi-drag-hint {
+  text-align: center;
+  font-size: 11px;
+  color: rgba(15,26,20,.28);
+  font-family: 'DM Sans', sans-serif;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
 </style>
 </style>
 </head>
@@ -1066,7 +1402,8 @@ footer{background:var(--esp);border-top:1px solid rgba(255,255,255,.07);padding:
             <div class="dw-prog-track"><div class="dw-prog-fill" style="--tw:42%;"></div></div>
           </div>
         </div>
-        <div class="dw-main" id="dw-main-panel">
+        <div class="dw-main" id="dw-main-panel" style="position:relative;">
+          
           <div class="dw-question-header">
             <div style="display:flex;align-items:center;justify-content:space-between;">
               <div style="display:flex;align-items:center;gap:8px;">
@@ -1360,6 +1697,75 @@ footer{background:var(--esp);border-top:1px solid rgba(255,255,255,.07);padding:
   </div>
 </section>
 
+
+<!-- SHARE CARD + UNI RANKING PREVIEW -->
+<div class="share-preview-wrap">
+  <div style="text-align:center;margin-bottom:2rem;">
+    <div style="font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#0a5c44;margin-bottom:.6rem;font-family:'DM Sans',sans-serif;">What you get after every session</div>
+    <h3 style="font-family:'DM Serif Display',serif;font-size:1.6rem;font-weight:400;color:#0f1a14;letter-spacing:-.03em;">A score card worth sharing.<br><em style="font-style:italic;color:#0a5c44;">And your university ranking.</em></h3>
+  </div>
+  <div class="share-preview-grid">
+
+    <!-- Share card -->
+    <div>
+      <div class="share-preview-label">Your score card</div>
+      <div class="lp-share-card">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.9rem;">
+          <div style="display:flex;align-items:center;gap:7px;">
+            <div style="width:26px;height:26px;background:#0f1a14;border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-style:italic;font-size:15px;color:#f5ede0;">m</div>
+            <span style="font-family:'DM Serif Display',serif;font-size:15px;color:#0f1a14;letter-spacing:-.02em;">mocha</span>
+          </div>
+          <div style="font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(15,26,20,.40);background:rgba(15,26,20,.05);border-radius:99px;padding:3px 10px;border:1px solid rgba(15,26,20,.07);">McKinsey · PEI</div>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:5px;margin-bottom:3px;">
+          <div style="font-family:'DM Serif Display',serif;font-size:4.5rem;color:#0f1a14;letter-spacing:-.055em;line-height:1;">8.5</div>
+          <div style="font-size:15px;color:rgba(15,26,20,.40);font-weight:500;margin-bottom:3px;">/10</div>
+        </div>
+        <div style="display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#16a34a;background:rgba(22,163,74,.08);padding:4px 12px;border-radius:99px;margin-bottom:1rem;">&#10003; Strong answer — advances</div>
+        <div style="height:1px;background:rgba(15,26,20,.07);margin-bottom:.9rem;"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;margin-bottom:1rem;">
+          <div style="display:flex;align-items:center;gap:7px;"><span style="font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:rgba(15,26,20,.35);width:46px;font-family:'DM Sans',sans-serif;">Structure</span><div style="flex:1;height:3px;background:rgba(15,26,20,.07);border-radius:2px;overflow:hidden;"><div style="width:91%;height:100%;background:linear-gradient(90deg,#0f1a14,#0a5c44);border-radius:2px;"></div></div><span style="font-size:10px;font-weight:700;color:#0f1a14;width:24px;text-align:right;font-family:'DM Sans',sans-serif;">9.1</span></div>
+          <div style="display:flex;align-items:center;gap:7px;"><span style="font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:rgba(15,26,20,.35);width:46px;font-family:'DM Sans',sans-serif;">Clarity</span><div style="flex:1;height:3px;background:rgba(15,26,20,.07);border-radius:2px;overflow:hidden;"><div style="width:84%;height:100%;background:linear-gradient(90deg,#0f1a14,#0a5c44);border-radius:2px;"></div></div><span style="font-size:10px;font-weight:700;color:#0f1a14;width:24px;text-align:right;font-family:'DM Sans',sans-serif;">8.4</span></div>
+          <div style="display:flex;align-items:center;gap:7px;"><span style="font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:rgba(15,26,20,.35);width:46px;font-family:'DM Sans',sans-serif;">Ownership</span><div style="flex:1;height:3px;background:rgba(15,26,20,.07);border-radius:2px;overflow:hidden;"><div style="width:72%;height:100%;background:linear-gradient(90deg,rgba(245,158,11,.8),rgba(220,120,20,.9));border-radius:2px;"></div></div><span style="font-size:10px;font-weight:700;color:rgba(180,100,10,.80);width:24px;text-align:right;font-family:'DM Sans',sans-serif;">7.2</span></div>
+          <div style="display:flex;align-items:center;gap:7px;"><span style="font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:rgba(15,26,20,.35);width:46px;font-family:'DM Sans',sans-serif;">Impact</span><div style="flex:1;height:3px;background:rgba(15,26,20,.07);border-radius:2px;overflow:hidden;"><div style="width:87%;height:100%;background:linear-gradient(90deg,#0f1a14,#0a5c44);border-radius:2px;"></div></div><span style="font-size:10px;font-weight:700;color:#0f1a14;width:24px;text-align:right;font-family:'DM Sans',sans-serif;">8.7</span></div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding-top:.8rem;border-top:1px solid rgba(15,26,20,.06);">
+          <span style="font-size:10px;color:rgba(15,26,20,.40);letter-spacing:.03em;font-weight:600;font-family:'DM Sans',sans-serif;">usemocha.app</span>
+          <button onclick="doGoogleSignIn()" style="display:inline-flex;align-items:center;gap:6px;background:#0f1a14;border:none;border-radius:99px;padding:9px 18px;font-size:12px;font-weight:700;color:#f5ede0;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .14s;" onmouseover="this.style.background='#0a5c44'" onmouseout="this.style.background='#0f1a14'">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg>
+            Get yours
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- University ranking -->
+    <div>
+      <div class="share-preview-label">Your university ranking</div>
+      <div class="lp-uni-card">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:1rem;">
+          <div style="font-family:'DM Serif Display',serif;font-size:3rem;color:#0f1a14;letter-spacing:-.05em;line-height:1;flex-shrink:0;">24%</div>
+          <div>
+            <div style="font-size:14px;font-weight:700;color:#0f1a14;font-family:'DM Sans',sans-serif;letter-spacing:-.01em;">Top 24% at Georgetown</div>
+            <div style="font-size:12px;color:rgba(15,26,20,.50);margin-top:3px;font-family:'DM Sans',sans-serif;">Based on sessions from students at your school this week</div>
+          </div>
+          <div style="flex-shrink:0;background:#0f1a14;color:#f5ede0;font-size:10px;font-weight:700;padding:5px 11px;border-radius:99px;font-family:'DM Sans',sans-serif;white-space:nowrap;">Top 24%</div>
+        </div>
+        <div style="height:1px;background:rgba(15,26,20,.10);margin-bottom:1rem;"></div>
+        <div style="font-size:13px;color:rgba(15,26,20,.55);line-height:1.65;font-family:'DM Sans',sans-serif;margin-bottom:1.25rem;">See how you compare against every other Mocha user at your university. Updated weekly. Available with Pro.</div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:1rem;">
+          <span style="height:22px;padding:0 9px;background:rgba(15,26,20,.06);border:1px solid rgba(15,26,20,.08);border-radius:99px;display:flex;align-items:center;font-size:9px;font-weight:700;color:rgba(15,26,20,.50);letter-spacing:.03em;text-transform:uppercase;font-family:'DM Sans',sans-serif;">Georgetown</span>
+          <span style="height:22px;padding:0 9px;background:rgba(15,26,20,.06);border:1px solid rgba(15,26,20,.08);border-radius:99px;display:flex;align-items:center;font-size:9px;font-weight:700;color:rgba(15,26,20,.50);letter-spacing:.03em;text-transform:uppercase;font-family:'DM Sans',sans-serif;">GWU</span>
+          <span style="height:22px;padding:0 9px;background:rgba(15,26,20,.06);border:1px solid rgba(15,26,20,.08);border-radius:99px;display:flex;align-items:center;font-size:9px;font-weight:700;color:rgba(15,26,20,.50);letter-spacing:.03em;text-transform:uppercase;font-family:'DM Sans',sans-serif;">NYU</span>
+          <span style="font-size:10px;color:rgba(15,26,20,.40);font-weight:600;font-family:'DM Sans',sans-serif;">+ 16 more</span>
+        </div>
+        <button onclick="doGoogleSignIn()" style="width:100%;background:#0f1a14;color:#f5ede0;border:none;border-radius:99px;padding:11px;font-size:13px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .14s;letter-spacing:-.01em;" onmouseover="this.style.background='#0a5c44'" onmouseout="this.style.background='#0f1a14'">See your ranking →</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <!-- PRICING -->
 <section class="pricing-section" id="pricing">
   <div class="pricing-inner">
@@ -1407,44 +1813,69 @@ footer{background:var(--esp);border-top:1px solid rgba(255,255,255,.07);padding:
 </section>
 
 <!-- TESTIMONIALS -->
-<section style="background:#fff;padding:5rem 2rem;position:relative;">
-  <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(15,26,20,.07) 30%,rgba(15,26,20,.07) 70%,transparent);"></div>
-  <div style="max-width:1060px;margin:0 auto;">
-    <div style="font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#0a5c44;margin-bottom:1rem;font-family:'DM Sans',sans-serif;text-align:center;">What students say</div>
-    <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,3.5vw,2.6rem);font-weight:400;color:#0f1a14;letter-spacing:-.04em;line-height:1.1;text-align:center;margin-bottom:2.75rem;">Real students.<br><em style="font-style:italic;color:#0a5c44;">Real offers.</em></h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
+<section class="testi-section-new">
+  <div style="max-width:1060px;margin:0 auto;padding:0 40px;position:relative;">
+    <div class="testi-eyebrow">What students say</div>
+    <h2 class="testi-headline">Real students.<br><em>Real offers.</em></h2>
+  </div>
 
-      <!-- Rudransh — Deloitte -->
-      <div style="background:#fafcfb;border:1.5px solid rgba(15,26,20,.08);border-radius:20px;padding:2.25rem 2rem;transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 40px rgba(15,26,20,.10)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
-        <div style="display:inline-flex;align-items:center;gap:6px;background:#eef7f1;border:1px solid rgba(10,92,68,.14);border-radius:99px;padding:4px 11px;font-size:10px;font-weight:700;color:#0a5c44;font-family:'DM Sans',sans-serif;margin-bottom:1.4rem;"><div style="width:5px;height:5px;border-radius:50%;background:#4dc994;"></div>Deloitte internship</div>
-        <p style="font-family:'DM Serif Display',serif;font-size:15.5px;color:#0f1a14;line-height:1.68;font-weight:400;font-style:italic;margin-bottom:1.6rem;">&ldquo;Mocha helped me prepare with realistic interview questions that reflected what I saw in my actual interviews.&rdquo;</p>
-        <div style="display:flex;align-items:center;gap:11px;"><div style="width:36px;height:36px;border-radius:50%;background:#0f1a14;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#f5ede0;font-family:'DM Sans',sans-serif;flex-shrink:0;">R</div><div><div style="font-size:13.5px;font-weight:700;color:#0f1a14;font-family:'DM Sans',sans-serif;">Rudransh</div><div style="font-size:11.5px;color:rgba(15,26,20,.42);font-family:'DM Sans',sans-serif;margin-top:1px;">Deloitte &middot; Consulting Intern</div></div></div>
+  <!-- Scroll container — Apple horizontal scroll -->
+  <div style="position:relative;">
+    <div class="testi-fade-l"></div>
+    <div class="testi-fade-r"></div>
+    <div class="testi-scroll-outer" id="testi-scroll">
+      <div class="testi-scroll-track">
+
+        <!-- Rudransh — light -->
+        <div class="testi-card-new testi-card-light">
+          <div class="testi-badge testi-badge-light"><div class="testi-badge-dot"></div>Deloitte internship</div>
+          <p class="testi-quote-new">&ldquo;Mocha helped me prepare with realistic interview questions that reflected what I saw in my actual interviews.&rdquo;</p>
+          <div class="testi-author-new">
+            <div class="testi-avatar-new" style="background:#0f1a14;color:#f5ede0;">R</div>
+            <div><div class="testi-name-new">Rudransh</div><div class="testi-role-new">Deloitte &middot; Consulting Intern</div></div>
+          </div>
+        </div>
+
+        <!-- Alessandro — dark -->
+        <div class="testi-card-new testi-card-dark" style="position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(10,92,68,.28) 0%,transparent 70%);pointer-events:none;"></div>
+          <div class="testi-badge testi-badge-dark" style="position:relative;"><div class="testi-badge-dot"></div>Beats By Dre internship</div>
+          <p class="testi-quote-new" style="position:relative;">&ldquo;Mocha made my interview prep feel real and helped me perform much better in actual internship interviews.&rdquo;</p>
+          <div class="testi-author-new" style="position:relative;">
+            <div class="testi-avatar-new" style="background:rgba(245,237,224,.10);border:1px solid rgba(245,237,224,.12);color:#f5ede0;">A</div>
+            <div><div class="testi-name-new">Alessandro</div><div class="testi-role-new">Beats By Dre &middot; Internship</div></div>
+          </div>
+        </div>
+
+        <!-- David — light -->
+        <div class="testi-card-new testi-card-light">
+          <div class="testi-badge testi-badge-light"><div class="testi-badge-dot"></div>U.S. Department of State</div>
+          <p class="testi-quote-new">&ldquo;Mocha is essential for anyone turning resume bullets into strong interview stories.&rdquo;</p>
+          <div class="testi-author-new">
+            <div class="testi-avatar-new" style="background:#1a3a5c;color:#f5ede0;">D</div>
+            <div><div class="testi-name-new">David</div><div class="testi-role-new">U.S. Department of State &middot; Fellow</div></div>
+          </div>
+        </div>
+
+        <!-- Shoki — forest -->
+        <div class="testi-card-new testi-card-forest" style="position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-40px;left:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(77,201,148,.15) 0%,transparent 70%);pointer-events:none;"></div>
+          <div class="testi-badge testi-badge-dark" style="position:relative;"><div class="testi-badge-dot"></div>L&apos;Or&eacute;al internship</div>
+          <p class="testi-quote-new" style="position:relative;">&ldquo;Mocha&apos;s easy to use and perfect for practicing during my commute.&rdquo;</p>
+          <div class="testi-author-new" style="position:relative;">
+            <div class="testi-avatar-new" style="background:rgba(77,201,148,.15);border:1px solid rgba(77,201,148,.22);color:#4dc994;">S</div>
+            <div><div class="testi-name-new">Shoki</div><div class="testi-role-new">L&apos;Or&eacute;al &middot; Intern</div></div>
+          </div>
+        </div>
+
       </div>
-
-      <!-- Alessandro — Beats By Dre -->
-      <div style="background:#0f1a14;border:1.5px solid #0f1a14;border-radius:20px;padding:2.25rem 2rem;position:relative;overflow:hidden;transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 40px rgba(15,26,20,.22)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
-        <div style="position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(10,92,68,.28) 0%,transparent 70%);pointer-events:none;"></div>
-        <div style="position:relative;display:inline-flex;align-items:center;gap:6px;background:rgba(77,201,148,.12);border:1px solid rgba(77,201,148,.20);border-radius:99px;padding:4px 11px;font-size:10px;font-weight:700;color:#4dc994;font-family:'DM Sans',sans-serif;margin-bottom:1.4rem;"><div style="width:5px;height:5px;border-radius:50%;background:#4dc994;"></div>Beats By Dre internship</div>
-        <p style="position:relative;font-family:'DM Serif Display',serif;font-size:15.5px;color:rgba(245,237,224,.88);line-height:1.68;font-weight:400;font-style:italic;margin-bottom:1.6rem;">&ldquo;Mocha made my interview prep feel real and helped me perform much better in actual internship interviews.&rdquo;</p>
-        <div style="position:relative;display:flex;align-items:center;gap:11px;"><div style="width:36px;height:36px;border-radius:50%;background:rgba(245,237,224,.10);border:1px solid rgba(245,237,224,.12);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#f5ede0;font-family:'DM Sans',sans-serif;flex-shrink:0;">A</div><div><div style="font-size:13.5px;font-weight:700;color:rgba(245,237,224,.90);font-family:'DM Sans',sans-serif;">Alessandro</div><div style="font-size:11.5px;color:rgba(245,237,224,.36);font-family:'DM Sans',sans-serif;margin-top:1px;">Beats By Dre &middot; Internship</div></div></div>
-      </div>
-
-      <!-- David — U.S. Department of State -->
-      <div style="background:#fafcfb;border:1.5px solid rgba(15,26,20,.08);border-radius:20px;padding:2.25rem 2rem;transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 40px rgba(15,26,20,.10)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
-        <div style="display:inline-flex;align-items:center;gap:6px;background:#eef7f1;border:1px solid rgba(10,92,68,.14);border-radius:99px;padding:4px 11px;font-size:10px;font-weight:700;color:#0a5c44;font-family:'DM Sans',sans-serif;margin-bottom:1.4rem;"><div style="width:5px;height:5px;border-radius:50%;background:#4dc994;"></div>U.S. Department of State Fellow</div>
-        <p style="font-family:'DM Serif Display',serif;font-size:15.5px;color:#0f1a14;line-height:1.68;font-weight:400;font-style:italic;margin-bottom:1.6rem;">&ldquo;Mocha is essential for anyone turning resume bullets into strong interview stories.&rdquo;</p>
-        <div style="display:flex;align-items:center;gap:11px;"><div style="width:36px;height:36px;border-radius:50%;background:#1a3a5c;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#f5ede0;font-family:'DM Sans',sans-serif;flex-shrink:0;">D</div><div><div style="font-size:13.5px;font-weight:700;color:#0f1a14;font-family:'DM Sans',sans-serif;">David</div><div style="font-size:11.5px;color:rgba(15,26,20,.42);font-family:'DM Sans',sans-serif;margin-top:1px;">U.S. Department of State &middot; Fellow</div></div></div>
-      </div>
-
-      <!-- Shoki — L'Oréal -->
-      <div style="background:#0a1f16;border:1.5px solid rgba(10,92,68,.20);border-radius:20px;padding:2.25rem 2rem;position:relative;overflow:hidden;transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 40px rgba(10,92,68,.15)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
-        <div style="position:absolute;top:-40px;left:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(77,201,148,.15) 0%,transparent 70%);pointer-events:none;"></div>
-        <div style="position:relative;display:inline-flex;align-items:center;gap:6px;background:rgba(77,201,148,.10);border:1px solid rgba(77,201,148,.18);border-radius:99px;padding:4px 11px;font-size:10px;font-weight:700;color:#4dc994;font-family:'DM Sans',sans-serif;margin-bottom:1.4rem;"><div style="width:5px;height:5px;border-radius:50%;background:#4dc994;"></div>L&apos;Or&eacute;al internship</div>
-        <p style="position:relative;font-family:'DM Serif Display',serif;font-size:15.5px;color:rgba(245,237,224,.88);line-height:1.68;font-weight:400;font-style:italic;margin-bottom:1.6rem;">&ldquo;Mocha&apos;s easy to use and perfect for practicing during my commute.&rdquo;</p>
-        <div style="position:relative;display:flex;align-items:center;gap:11px;"><div style="width:36px;height:36px;border-radius:50%;background:rgba(77,201,148,.15);border:1px solid rgba(77,201,148,.22);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#4dc994;font-family:'DM Sans',sans-serif;flex-shrink:0;">S</div><div><div style="font-size:13.5px;font-weight:700;color:rgba(245,237,224,.90);font-family:'DM Sans',sans-serif;">Shoki</div><div style="font-size:11.5px;color:rgba(245,237,224,.36);font-family:'DM Sans',sans-serif;margin-top:1px;">L&apos;Or&eacute;al &middot; Intern</div></div></div>
-      </div>
-
     </div>
+  </div>
+
+  <!-- Subtle drag hint -->
+  <div class="testi-drag-hint">
+    <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5h12M9 1l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Scroll to see more
   </div>
 </section>
 
@@ -1536,12 +1967,18 @@ function doGoogleSignIn(){var client=_getSupabaseClient();if(!client){openModal(
 /* ══ DEMO LOOP ══ */
 var _demoStarted=false,_demoTimer=null,_demoSteps=[],_demoIdx=0,_demoTimerSec=227,_demoTimerInt=null;
 var DEMO_CONV=[
+  {t:'clear'},
+  {t:'prefill'},
   {t:'wait',ms:800},
+  {t:'feedback'},
+  {t:'wait',ms:6000},
+  {t:'reset'},
+  {t:'wait',ms:600},
   {t:'bubble',side:'ai',name:'Mocha Coach',text:'Tell me about a time you influenced a stakeholder who had more information than you.'},
   {t:'wait',ms:1600},
-  {t:'typing',ms:1800},
-  {t:'input',text:'In my junior year internship at a consulting firm…',ms:60},
-  {t:'bubble',side:'user',name:'You',text:'During my summer internship, I identified that our client’s proposed market entry was based on outdated data. The partner had already committed to the approach, but I built a revised model showing a 34% lower TAM…'},
+  {t:'typing',ms:1600},
+  {t:'input',text:'During my internship at a consulting firm…',ms:55},
+  {t:'bubble',side:'user',name:'You',text:'During my summer internship, I identified that our client’s market entry was based on outdated data. The partner had already committed — I rebuilt the revenue model, showing a 34% lower TAM, and presented it directly to the engagement manager.'},
   {t:'send'},
   {t:'wait',ms:500},
   {t:'feedback'},
@@ -1551,6 +1988,20 @@ var DEMO_CONV=[
 function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function startDemoLoop(){if(_demoStarted)return;_demoStarted=true;_demoSteps=DEMO_CONV;_demoIdx=0;demoStep();}
 function demoStep(){var msgsEl=document.getElementById('dw-messages');if(!msgsEl)return;if(_demoIdx>=_demoSteps.length){_demoIdx=0;demoStep();return;}var s=_demoSteps[_demoIdx];_demoIdx++;
+  if(s.t==='clear'){var m=document.getElementById('dw-messages');if(m)m.innerHTML='';_demoTimer=setTimeout(demoStep,60);return;}
+  if(s.t==='prefill'){
+    var m=document.getElementById('dw-messages');
+    if(m){
+      var q=document.createElement('div');q.className='dw-bubble dw-bubble-ai';
+      q.innerHTML='<div class="dw-bubble-name">Mocha Coach</div><div class="dw-bubble-text">Tell me about a time you influenced a stakeholder who had more information than you.</div>';
+      q.classList.add('visible');m.appendChild(q);
+      var a=document.createElement('div');a.className='dw-bubble dw-bubble-user';
+      a.innerHTML='<div class="dw-bubble-name">You</div><div class="dw-bubble-text">During my summer internship, I identified that our client’s market entry was based on outdated data. The partner had already committed — I rebuilt the revenue model, showing a 34% lower TAM, and presented it directly to the engagement manager.</div>';
+      a.classList.add('visible');m.appendChild(a);
+      m.scrollTop=m.scrollHeight;
+    }
+    _demoTimer=setTimeout(demoStep,60);return;
+  }
   if(s.t==='wait'){_demoTimer=setTimeout(demoStep,s.ms);return;}
   if(s.t==='bubble'){var bDiv=document.createElement('div');bDiv.className='dw-bubble dw-bubble-'+s.side;bDiv.innerHTML='<div class="dw-bubble-name">'+s.name+'</div><div class="dw-bubble-text">'+escHtml(s.text)+'</div>';msgsEl.appendChild(bDiv);setTimeout(function(){bDiv.classList.add('visible');},20);msgsEl.scrollTop=msgsEl.scrollHeight;_demoTimer=setTimeout(demoStep,120);return;}
   if(s.t==='typing'){var tDiv=document.createElement('div');tDiv.className='dw-typing-bubble';tDiv.innerHTML='<div class="dw-bubble-text"><div class="dw-t-dot"></div><div class="dw-t-dot"></div><div class="dw-t-dot"></div></div>';msgsEl.appendChild(tDiv);setTimeout(function(){tDiv.classList.add('visible');},20);msgsEl.scrollTop=msgsEl.scrollHeight;_demoTimer=setTimeout(function(){if(tDiv.parentNode)tDiv.parentNode.removeChild(tDiv);demoStep();},s.ms);return;}
@@ -1912,6 +2363,27 @@ document.addEventListener('click', function(e) {
   }
 });
 
+</script>
+<script>
+// Testimonials drag-to-scroll
+(function(){
+  var el = document.getElementById('testi-scroll');
+  if (!el) return;
+  var isDown = false, startX, scrollLeft;
+  el.addEventListener('mousedown', function(e){
+    isDown = true; el.style.cursor = 'grabbing';
+    startX = e.pageX - el.offsetLeft;
+    scrollLeft = el.scrollLeft;
+  });
+  el.addEventListener('mouseleave', function(){ isDown = false; el.style.cursor = 'grab'; });
+  el.addEventListener('mouseup', function(){ isDown = false; el.style.cursor = 'grab'; });
+  el.addEventListener('mousemove', function(e){
+    if (!isDown) return;
+    e.preventDefault();
+    var x = e.pageX - el.offsetLeft;
+    el.scrollLeft = scrollLeft - (x - startX) * 1.2;
+  });
+})();
 </script>
 </body>
 </html>
