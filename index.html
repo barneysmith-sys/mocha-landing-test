@@ -863,6 +863,69 @@ footer{background:var(--esp);border-top:1px solid rgba(255,255,255,.07);padding:
   .final-cta-section { min-height: 460px; }
 }
 
+
+/* ══ RESOURCES DROPDOWN ══ */
+#resources-menu {
+  position: fixed;
+  top: 52px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 1px solid rgba(15,26,20,.10);
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 4px 6px rgba(15,26,20,.04), 0 16px 48px rgba(15,26,20,.14);
+  z-index: 9999;
+  min-width: 240px;
+  display: none;
+  animation: menuIn .18s cubic-bezier(.16,1,.3,1);
+}
+#resources-menu.open { display: block; }
+@keyframes menuIn {
+  from { opacity:0; transform: translateX(-50%) translateY(-6px); }
+  to   { opacity:1; transform: translateX(-50%) translateY(0); }
+}
+.resources-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background .12s;
+  text-decoration: none;
+}
+.resources-item:hover { background: #f5f7f5; }
+.resources-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #f5ede0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 15px;
+}
+.resources-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0f1a14;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: -.01em;
+}
+.resources-desc {
+  font-size: 11.5px;
+  color: rgba(15,26,20,.42);
+  font-family: 'DM Sans', sans-serif;
+  margin-top: 1px;
+}
+.resources-divider {
+  height: 1px;
+  background: rgba(15,26,20,.06);
+  margin: 4px 0;
+}
+
 </style>
 </style>
 </head>
@@ -892,7 +955,7 @@ footer{background:var(--esp);border-top:1px solid rgba(255,255,255,.07);padding:
     <button class="ob-product"   onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})" title="Product"></button>
     <button class="ob-pricing"   onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})" title="Pricing"></button>
     <button class="ob-unis"      onclick="window.location.href='universities.html'" title="For Universities"></button>
-    <button class="ob-resources" onclick="window.location.href='resources.html'" title="Resources"></button>
+    <button class="ob-resources" onclick="toggleResourcesMenu()" title="Resources" id="ob-resources-btn"></button>
     <button class="ob-login"     onclick="openModal()" title="Log in"></button>
     <button class="ob-navstart"  onclick="doGoogleSignIn()" title="Start free"></button>
     <button class="ob-start"     onclick="doGoogleSignIn()" title="Start free"></button>
@@ -1346,21 +1409,41 @@ footer{background:var(--esp);border-top:1px solid rgba(255,255,255,.07);padding:
 <!-- TESTIMONIALS -->
 <section style="background:#fff;padding:5rem 2rem;position:relative;">
   <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(15,26,20,.07) 30%,rgba(15,26,20,.07) 70%,transparent);"></div>
-  <div style="max-width:880px;margin:0 auto;">
+  <div style="max-width:1060px;margin:0 auto;">
     <div style="font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#0a5c44;margin-bottom:1rem;font-family:'DM Sans',sans-serif;text-align:center;">What students say</div>
     <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,3.5vw,2.6rem);font-weight:400;color:#0f1a14;letter-spacing:-.04em;line-height:1.1;text-align:center;margin-bottom:2.75rem;">Real students.<br><em style="font-style:italic;color:#0a5c44;">Real offers.</em></h2>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
-      <div class="testi-card" style="background:#fafcfb;border:1.5px solid rgba(15,26,20,.08);">
-        <div style="display:inline-flex;align-items:center;gap:6px;background:#eef7f1;border:1px solid rgba(10,92,68,.14);border-radius:99px;padding:4px 11px;font-size:10px;font-weight:700;color:#0a5c44;font-family:'DM Sans',sans-serif;margin-bottom:1.4rem;"><div style="width:5px;height:5px;border-radius:50%;background:#4dc994;"></div>Deloitte offer</div>
+
+      <!-- Rudransh — Deloitte -->
+      <div style="background:#fafcfb;border:1.5px solid rgba(15,26,20,.08);border-radius:20px;padding:2.25rem 2rem;transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 40px rgba(15,26,20,.10)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+        <div style="display:inline-flex;align-items:center;gap:6px;background:#eef7f1;border:1px solid rgba(10,92,68,.14);border-radius:99px;padding:4px 11px;font-size:10px;font-weight:700;color:#0a5c44;font-family:'DM Sans',sans-serif;margin-bottom:1.4rem;"><div style="width:5px;height:5px;border-radius:50%;background:#4dc994;"></div>Deloitte internship</div>
         <p style="font-family:'DM Serif Display',serif;font-size:15.5px;color:#0f1a14;line-height:1.68;font-weight:400;font-style:italic;margin-bottom:1.6rem;">&ldquo;Mocha helped me prepare with realistic interview questions that reflected what I saw in my actual interviews.&rdquo;</p>
-        <div style="display:flex;align-items:center;gap:11px;"><div style="width:36px;height:36px;border-radius:50%;background:#0f1a14;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#f5ede0;font-family:'DM Sans',sans-serif;flex-shrink:0;">R</div><div><div style="font-size:13.5px;font-weight:700;color:#0f1a14;font-family:'DM Sans',sans-serif;">Rudransh</div><div style="font-size:11.5px;color:rgba(15,26,20,.42);font-family:'DM Sans',sans-serif;margin-top:1px;">Deloitte &middot; Strategy &amp; Consulting</div></div></div>
+        <div style="display:flex;align-items:center;gap:11px;"><div style="width:36px;height:36px;border-radius:50%;background:#0f1a14;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#f5ede0;font-family:'DM Sans',sans-serif;flex-shrink:0;">R</div><div><div style="font-size:13.5px;font-weight:700;color:#0f1a14;font-family:'DM Sans',sans-serif;">Rudransh</div><div style="font-size:11.5px;color:rgba(15,26,20,.42);font-family:'DM Sans',sans-serif;margin-top:1px;">Deloitte &middot; Consulting Intern</div></div></div>
       </div>
-      <div class="testi-card" style="background:#0f1a14;border:1.5px solid #0f1a14;position:relative;overflow:hidden;">
+
+      <!-- Alessandro — Beats By Dre -->
+      <div style="background:#0f1a14;border:1.5px solid #0f1a14;border-radius:20px;padding:2.25rem 2rem;position:relative;overflow:hidden;transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 40px rgba(15,26,20,.22)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
         <div style="position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(10,92,68,.28) 0%,transparent 70%);pointer-events:none;"></div>
         <div style="position:relative;display:inline-flex;align-items:center;gap:6px;background:rgba(77,201,148,.12);border:1px solid rgba(77,201,148,.20);border-radius:99px;padding:4px 11px;font-size:10px;font-weight:700;color:#4dc994;font-family:'DM Sans',sans-serif;margin-bottom:1.4rem;"><div style="width:5px;height:5px;border-radius:50%;background:#4dc994;"></div>Beats By Dre internship</div>
         <p style="position:relative;font-family:'DM Serif Display',serif;font-size:15.5px;color:rgba(245,237,224,.88);line-height:1.68;font-weight:400;font-style:italic;margin-bottom:1.6rem;">&ldquo;Mocha made my interview prep feel real and helped me perform much better in actual internship interviews.&rdquo;</p>
         <div style="position:relative;display:flex;align-items:center;gap:11px;"><div style="width:36px;height:36px;border-radius:50%;background:rgba(245,237,224,.10);border:1px solid rgba(245,237,224,.12);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#f5ede0;font-family:'DM Sans',sans-serif;flex-shrink:0;">A</div><div><div style="font-size:13.5px;font-weight:700;color:rgba(245,237,224,.90);font-family:'DM Sans',sans-serif;">Alessandro</div><div style="font-size:11.5px;color:rgba(245,237,224,.36);font-family:'DM Sans',sans-serif;margin-top:1px;">Beats By Dre &middot; Internship</div></div></div>
       </div>
+
+      <!-- David — U.S. Department of State -->
+      <div style="background:#fafcfb;border:1.5px solid rgba(15,26,20,.08);border-radius:20px;padding:2.25rem 2rem;transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 40px rgba(15,26,20,.10)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+        <div style="display:inline-flex;align-items:center;gap:6px;background:#eef7f1;border:1px solid rgba(10,92,68,.14);border-radius:99px;padding:4px 11px;font-size:10px;font-weight:700;color:#0a5c44;font-family:'DM Sans',sans-serif;margin-bottom:1.4rem;"><div style="width:5px;height:5px;border-radius:50%;background:#4dc994;"></div>U.S. Department of State Fellow</div>
+        <p style="font-family:'DM Serif Display',serif;font-size:15.5px;color:#0f1a14;line-height:1.68;font-weight:400;font-style:italic;margin-bottom:1.6rem;">&ldquo;Mocha is essential for anyone turning resume bullets into strong interview stories.&rdquo;</p>
+        <div style="display:flex;align-items:center;gap:11px;"><div style="width:36px;height:36px;border-radius:50%;background:#1a3a5c;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#f5ede0;font-family:'DM Sans',sans-serif;flex-shrink:0;">D</div><div><div style="font-size:13.5px;font-weight:700;color:#0f1a14;font-family:'DM Sans',sans-serif;">David</div><div style="font-size:11.5px;color:rgba(15,26,20,.42);font-family:'DM Sans',sans-serif;margin-top:1px;">U.S. Department of State &middot; Fellow</div></div></div>
+      </div>
+
+      <!-- Shoki — L'Oréal -->
+      <div style="background:#0a1f16;border:1.5px solid rgba(10,92,68,.20);border-radius:20px;padding:2.25rem 2rem;position:relative;overflow:hidden;transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 40px rgba(10,92,68,.15)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+        <div style="position:absolute;top:-40px;left:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(77,201,148,.15) 0%,transparent 70%);pointer-events:none;"></div>
+        <div style="position:relative;display:inline-flex;align-items:center;gap:6px;background:rgba(77,201,148,.10);border:1px solid rgba(77,201,148,.18);border-radius:99px;padding:4px 11px;font-size:10px;font-weight:700;color:#4dc994;font-family:'DM Sans',sans-serif;margin-bottom:1.4rem;"><div style="width:5px;height:5px;border-radius:50%;background:#4dc994;"></div>L&apos;Or&eacute;al internship</div>
+        <p style="position:relative;font-family:'DM Serif Display',serif;font-size:15.5px;color:rgba(245,237,224,.88);line-height:1.68;font-weight:400;font-style:italic;margin-bottom:1.6rem;">&ldquo;Mocha&apos;s easy to use and perfect for practicing during my commute.&rdquo;</p>
+        <div style="position:relative;display:flex;align-items:center;gap:11px;"><div style="width:36px;height:36px;border-radius:50%;background:rgba(77,201,148,.15);border:1px solid rgba(77,201,148,.22);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#4dc994;font-family:'DM Sans',sans-serif;flex-shrink:0;">S</div><div><div style="font-size:13.5px;font-weight:700;color:rgba(245,237,224,.90);font-family:'DM Sans',sans-serif;">Shoki</div><div style="font-size:11.5px;color:rgba(245,237,224,.36);font-family:'DM Sans',sans-serif;margin-top:1px;">L&apos;Or&eacute;al &middot; Intern</div></div></div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1452,7 +1535,19 @@ function doGoogleSignIn(){var client=_getSupabaseClient();if(!client){openModal(
 
 /* ══ DEMO LOOP ══ */
 var _demoStarted=false,_demoTimer=null,_demoSteps=[],_demoIdx=0,_demoTimerSec=227,_demoTimerInt=null;
-var DEMO_CONV=[{t:'wait',ms:600},{t:'bubble',side:'ai',name:'Mocha Coach',text:'Tell me about a time you used data to persuade someone to change course.'},{t:'wait',ms:1400},{t:'typing',ms:1600},{t:'input',text:'During my junior year, I led the analytics workstream…',ms:80},{t:'bubble',side:'user',name:'You',text:'During my junior year, I led the analytics workstream for a go-to-market project. Our team was split on whether to enter a new segment — I built a revenue model showing…'},{t:'send'},{t:'wait',ms:600},{t:'feedback'},{t:'wait',ms:5000},{t:'reset'}];
+var DEMO_CONV=[
+  {t:'wait',ms:800},
+  {t:'bubble',side:'ai',name:'Mocha Coach',text:'Tell me about a time you influenced a stakeholder who had more information than you.'},
+  {t:'wait',ms:1600},
+  {t:'typing',ms:1800},
+  {t:'input',text:'In my junior year internship at a consulting firm…',ms:60},
+  {t:'bubble',side:'user',name:'You',text:'During my summer internship, I identified that our client’s proposed market entry was based on outdated data. The partner had already committed to the approach, but I built a revised model showing a 34% lower TAM…'},
+  {t:'send'},
+  {t:'wait',ms:500},
+  {t:'feedback'},
+  {t:'wait',ms:6000},
+  {t:'reset'}
+];
 function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function startDemoLoop(){if(_demoStarted)return;_demoStarted=true;_demoSteps=DEMO_CONV;_demoIdx=0;demoStep();}
 function demoStep(){var msgsEl=document.getElementById('dw-messages');if(!msgsEl)return;if(_demoIdx>=_demoSteps.length){_demoIdx=0;demoStep();return;}var s=_demoSteps[_demoIdx];_demoIdx++;
@@ -1466,7 +1561,7 @@ function demoStep(){var msgsEl=document.getElementById('dw-messages');if(!msgsEl
   demoStep();
 }
 function initDemoObserver(){startDemoLoop();startDemoTimer();}
-function startDemoTimer(){if(_demoTimerInt)return;_demoTimerInt=setInterval(function(){_demoTimerSec--;if(_demoTimerSec<0)_demoTimerSec=347;var m=Math.floor(_demoTimerSec/60);var s=_demoTimerSec%60;var el=document.getElementById('demo-timer');if(el)el.textContent=m+':'+(s<10?'0':'')+s;},1000);}
+function startDemoTimer(){if(_demoTimerInt)return;_demoTimerInt=setInterval(function(){_demoTimerSec--;if(_demoTimerSec<0)_demoTimerSec=227;var m=Math.floor(_demoTimerSec/60);var s=_demoTimerSec%60;var el=document.getElementById('demo-timer');if(el)el.textContent=m+':'+(s<10?'0':'')+s;},1000);}
 
 /* ══ FAQ ══ */
 function toggleFaq(el){var answer=el.querySelector('.faq-answer');var icon=el.querySelector('.faq-icon');var isOpen=answer.style.display!=='none';document.querySelectorAll('.faq-item').forEach(function(item){item.querySelector('.faq-answer').style.display='none';var ic=item.querySelector('.faq-icon');ic.style.background='transparent';ic.style.borderColor='rgba(15,26,20,.14)';ic.style.color='rgba(15,26,20,.40)';var p=item.querySelector('svg path');if(p)p.setAttribute('d','M2 4L5 7L8 4');});if(!isOpen){answer.style.display='block';icon.style.background='#0f1a14';icon.style.borderColor='#0f1a14';icon.style.color='#f5ede0';var svg=icon.querySelector('svg path');if(svg)svg.setAttribute('d','M2 6L5 3L8 6');}}
@@ -1476,10 +1571,7 @@ var beanMessages=['One question away.','McKinsey doesn’t forgive vague answers
 var _beanIdx=0;
 function initBeans(){['bean-container','bean-container-cta'].forEach(function(id){var el=document.getElementById(id);if(!el)return;var imgId=id==='bean-container'?'bean-img':'bean-img-cta';var img=document.getElementById(imgId);if(!img)return;el.addEventListener('click',function(e){e.stopPropagation();var msg=beanMessages[_beanIdx%beanMessages.length];_beanIdx++;img.style.animation='none';void img.offsetWidth;img.style.animation='beanJump 0.55s cubic-bezier(.34,1.56,.64,1)';setTimeout(function(){img.style.animation='beanFloat 3.5s ease-in-out infinite';},600);var old=el.querySelector('.bean-pop');if(old)old.remove();var bubble=document.createElement('div');bubble.className='bean-pop';bubble.textContent=msg;bubble.style.cssText='position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#0f1a14;color:#f5ede0;border:1px solid rgba(245,237,224,.12);border-radius:10px;padding:7px 13px;font-size:11px;font-weight:600;white-space:normal;max-width:200px;text-align:center;box-shadow:0 4px 20px rgba(15,26,20,.18);font-family:DM Sans,sans-serif;z-index:100;pointer-events:none;';el.appendChild(bubble);setTimeout(function(){if(bubble.parentNode)bubble.parentNode.removeChild(bubble);},2600);});});}
 
-document.addEventListener('DOMContentLoaded',function(){
-  initDemoObserver();
-  initBeans();
-});
+// init handled by shipped DOMContentLoaded below
 </script>
 
 <!-- ══ SIGN-IN MODAL — mirrors usemocha.app exactly ══ -->
@@ -1770,6 +1862,56 @@ document.addEventListener('DOMContentLoaded',function(){
 var _bubbleStyle = document.createElement('style');
 _bubbleStyle.textContent = '@keyframes bubbleIn{from{opacity:0;transform:translateX(-50%) translateY(6px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}';
 document.head.appendChild(_bubbleStyle);
+</script>
+
+<!-- RESOURCES DROPDOWN -->
+<div id="resources-menu" role="menu">
+  <a class="resources-item" href="resources.html" onclick="closeResourcesMenu()">
+    <div class="resources-icon">📚</div>
+    <div>
+      <div class="resources-title">Interview guides</div>
+      <div class="resources-desc">McKinsey, Goldman, Google prep guides</div>
+    </div>
+  </a>
+  <div class="resources-divider"></div>
+  <a class="resources-item" href="resources.html#blog" onclick="closeResourcesMenu()">
+    <div class="resources-icon">✍️</div>
+    <div>
+      <div class="resources-title">Blog</div>
+      <div class="resources-desc">Stories from students who got the offer</div>
+    </div>
+  </a>
+  <div class="resources-divider"></div>
+  <a class="resources-item" href="resources.html#faq" onclick="closeResourcesMenu()">
+    <div class="resources-icon">💬</div>
+    <div>
+      <div class="resources-title">FAQ</div>
+      <div class="resources-desc">Everything about how Mocha works</div>
+    </div>
+  </a>
+</div>
+
+<script>
+
+function toggleResourcesMenu() {
+  var menu = document.getElementById('resources-menu');
+  if (!menu) return;
+  menu.classList.toggle('open');
+}
+function closeResourcesMenu() {
+  var menu = document.getElementById('resources-menu');
+  if (menu) menu.classList.remove('open');
+}
+// Close on outside click
+document.addEventListener('click', function(e) {
+  var menu = document.getElementById('resources-menu');
+  var btn  = document.getElementById('ob-resources-btn');
+  if (!menu || !btn) return;
+  if (!menu.contains(e.target) && !btn.contains(e.target)) {
+    menu.classList.remove('open');
+  }
+});
+
 </script>
 </body>
 </html>
